@@ -1,0 +1,46 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+div#header {
+    background: #FFFF66;
+    padding: 0.5em;
+}
+
+nav#searchform {
+    background: #CCCCFF;
+    padding: 0.5em;
+}
+
+nav#searchform input {
+    margin-right: 2em;
+}
+
+nav#videolist {
+    float: left;
+    width: 180px;
+    padding: 0.5em;
+    display: none;
+}
+
+nav#videolist ol {
+    height: 85%;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-padding-start: 25px;
+}
+
+section#defaultContent {
+    float: left;
+    padding: 1em;
+    display: block;
+}
+
+section#video {
+    display: none;
+}
+
+button#videoSelect {
+    background: none;
+    border: none;
+}

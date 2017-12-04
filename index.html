@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Youtube Hitlist Player</title>
+    <link rel="stylesheet" type="text/css" href="hitlist.css"/>
+    <!-- include permitted libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.0/moment.min.js"></script>
+</head>
+
+<body>
+<div data-ng-app="ngApp" data-ng-controller="ngCtrl">
+    <div id="header">
+        CS2003 Web1 Assignment: Youtube hitlist
+    </div>
+    <nav id="searchform">
+        <form>
+            <label for="query">Fulltext:</label>
+            <input type="search" id="query"/>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate"/>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate"/>
+            <button id="submit" type="submit" data-ng-click="submitSearch()">Search</button>
+        </form>
+    </nav>
+
+    <nav id="videolist">
+        <ol>
+            <li data-ng-repeat="video in videoLinks">
+                <button id="videoSelect" data-ng-click="videoSelected(video)">
+                    {{video.title}}<br>
+                    <img src={{video.thumbUrl}} alt="No thumbnail image available.">
+                </button>
+            </li>
+        </ol>
+    </nav>
+
+    <section id="defaultContent">
+        <h1>Welcome to the CS2003 Youtube Hitlist!</h1>
+        <p>
+            Use the search fields above, then select a video from the list on the left to play it.
+        </p>
+    </section>
+
+    <section id="video">
+
+        <h1 id="videoTitle">{{videoTitle}}</h1>
+
+        <!-- youtube embed code, attribute src is set by JS -->
+        <iframe width="560" height="315" src="" id="iframe" frameborder="0" allowfullscreen></iframe>
+
+        <p id="video_desc">
+            {{videoDesc}}
+        </p>
+        <p id="video_published">
+            {{videoPublished}}
+        </p>
+    </section>
+
+</div>
+
+<script src="hitlist.js"></script>
+
+</body>
+
+</html>
